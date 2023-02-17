@@ -15,3 +15,24 @@ body {
     color-scheme: dark;
   }
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.details {
+  overflow-y: auto; /* this helps review the info when there is no image and limit the info from covering the image*/
+  background-color: #000000;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+  /* display: none; */
+}
+
+.card:hover .details {
+  transform: translateY(0);
+  /* display: block; */
+}
