@@ -1,7 +1,7 @@
-import { useMoviesSearch } from "@/component/hooks";
+import { useMoviesSearch } from "component/hooks";
+import MovieCard from "component/MovieCard";
+import { moviesGenres } from "component/moviesData";
 import React, { useState } from "react";
-import { moviesGenres } from "../../component/moviesData";
-import MovieCard from "@/component/MovieCard";
 
 function MoviesHomePage() {
   const [currentlyDisplayed, setCurrentlyDisplayed] = useState();
@@ -13,7 +13,7 @@ function MoviesHomePage() {
   const { movieList, isError, isLoading } = useMoviesSearch(
     currentlyDisplayed ? search : currentGenre ? genre : discover
   );
-
+  useMoviesSearch;
   function pickGenre(id) {
     setCurrentgenre((state) => {
       function checkState(st, id) {
