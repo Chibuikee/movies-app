@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 // import { Inter } from "@next/font/google";
-import MoviesHomePage from "./Movies/moviesHomePage";
+import Movies from "./Movies";
 export default function Home() {
   return (
     <>
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <main className="">
         <div className="">
-          <MoviesHomePage />
+          <Movies />
         </div>
       </main>
     </>
