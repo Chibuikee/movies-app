@@ -4,17 +4,26 @@ import MovieCard from "../../components/MovieCard";
 import { moviesGenres } from "../../components/moviesData";
 
 function MoviesHomePage() {
-  MovieCard;
   const [currentlyDisplayed, setCurrentlyDisplayed] = useState();
   const [currentGenre, setCurrentgenre] = useState([]);
   const apikey = process.env.NEXT_PUBLIC_MOVIE_DB;
+  const release_date = `discover/movie?api_key=${apikey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=2&primary_release_year=${currentlyDisplayed}&with_watch_monetization_types=flatrate`;
   const discover = `movie?api_key=${apikey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=flatrate`;
   const genre = `discover/movie?api_key=${apikey}&with_genres=${currentGenre.toString()}`;
   const search = `search/movie?api_key=${apikey}&query=${currentlyDisplayed}&page=1`;
   const { movieList, isError, isLoading } = useMoviesSearch(
-    currentlyDisplayed ? search : currentGenre ? genre : discover
+    currentlyDisplayed && !isNaN(currentlyDisplayed)
+      ? release_date
+      : currentlyDisplayed && typeof currentlyDisplayed == "string"
+      ? search
+      : currentGenre
+      ? genre
+      : discover
   );
-  useMoviesSearch;
+  //   function checkType  (id){
+  // const result = typeof id =="number"? release_date:search
+  //   }
+  // console.log(!isNaN(currentlyDisplayed));
   function pickGenre(id) {
     setCurrentgenre((state) => {
       function checkState(st, id) {
@@ -52,7 +61,7 @@ function MoviesHomePage() {
         <div className="w-[200px] mx-auto z-10 fixed top-6 right-3 ">
           <input
             onChange={(e) => setCurrentlyDisplayed(e.currentTarget.value)}
-            placeholder="Serach Movies"
+            placeholder="Movie Year / Title"
             className="border border-solid border-[blue] p-1 mt-5 rounded"
             value={currentlyDisplayed}
           />
@@ -63,7 +72,7 @@ function MoviesHomePage() {
               <div className="loading-spinner"></div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 xxs:grid-cols-4 mmd:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-2">
+            <div className="grid grid-cols-1 xxxs:grid-cols-2 xxs:grid-cols-4 mmd:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-2">
               {movieList?.map((item, key) => (
                 <MovieCard key={key} moviedataList={item} />
               ))}
