@@ -21,7 +21,7 @@ function MovieCard({ moviedataList }) {
         />
       </div>
       <h1 className="w-full bg-[purple]">DETAILS</h1>
-      <div className="details text-[white]">
+      <div className="details">
         <h3>{moviedataList.media_type}</h3>
         <h3>Release Date:{moviedataList.release_date}</h3>
         <h3>{moviedataList.original_title}</h3>

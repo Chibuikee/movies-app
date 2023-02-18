@@ -1,7 +1,7 @@
-import { useFetchMovie } from "component/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useFetchMovie } from "../../component/hooks";
 
 function Moviedetail() {
   const router = useRouter();

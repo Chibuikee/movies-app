@@ -37,6 +37,7 @@ body {
 .details {
   overflow-y: auto; /* this helps review the info when there is no image and limit the info from covering the image*/
   background-color: #000000;
+  color: #f3f3f3;
   padding: 2rem;
   position: absolute;
   left: 0;

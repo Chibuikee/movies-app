@@ -1,9 +1,10 @@
-import { useMoviesSearch } from "component/hooks";
-import MovieCard from "component/MovieCard";
-import { moviesGenres } from "component/moviesData";
 import React, { useState } from "react";
+import { useMoviesSearch } from "../../component/hooks";
+import MovieCard from "../../component/MovieCard";
+import { moviesGenres } from "../../component/moviesData";
 
 function MoviesHomePage() {
+  MovieCard;
   const [currentlyDisplayed, setCurrentlyDisplayed] = useState();
   const [currentGenre, setCurrentgenre] = useState([]);
   const apikey = process.env.NEXT_PUBLIC_MOVIE_DB;
