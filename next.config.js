@@ -14,4 +14,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-// https://image.tmdb.org/t/p/w500/

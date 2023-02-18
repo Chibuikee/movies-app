@@ -32,15 +32,15 @@ function MoviesHomePage() {
 
   if (isError) return <h1>An error occured. Please refrech your browser</h1>;
   return (
-    <section className="px-9">
-      <div className="relative  ">
-        <div className="fixed max-h-[70vh] w-24 top-[100px] left-0 overflow-scroll">
-          <div className=" z-20 h-[100vh]">
+    <section className=" pb-10">
+      <div className=" left-0 mmd:fixed overflow-y-scroll">
+        <div className=" p-[10px] mt-[80px]">
+          <div className="flex flex-wrap gap-1 justify-center items-center">
             {moviesGenres.map((item) => (
               <button
                 key={item.id}
                 onClick={() => pickGenre(item.id)}
-                className={`text-[#ffffff] my-2 px-4 py-2 rounded ${
+                className={`text-[#ffffff] my-1 px-4 py-1 rounded ${
                   currentGenre.includes(item.id) ? "bg-[blue]" : "bg-[red]"
                 }`}
               >
@@ -49,21 +49,21 @@ function MoviesHomePage() {
             ))}
           </div>
         </div>
-        <div className="w-[200px] mx-auto z-10 fixed top-6 bg-[red] right-0 left-0">
+        <div className="w-[200px] mx-auto z-10 fixed top-6 right-3 ">
           <input
             onChange={(e) => setCurrentlyDisplayed(e.currentTarget.value)}
             placeholder="Serach Movies"
-            className="border border-solid border-[blue] p-2 mt-5"
+            className="border border-solid border-[blue] p-1 mt-5 rounded"
             value={currentlyDisplayed}
           />
         </div>
-        <div className="overflow-scroll h-[100vh] mt-[100px]">
+        <div className="mmd:overflow-scroll h-[450px] mt-[10px] pb-10 px-[20px]">
           {isLoading ? (
             <div className="flex justify-center items-center h-[100vh]">
               <div className="loading-spinner"></div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 xxs:grid-cols-2 mmd:grid-cols-3 pc:grid-cols-4 gap-2 ml-20">
+            <div className="grid grid-cols-1 xxs:grid-cols-4 mmd:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-2">
               {movieList?.map((item, key) => (
                 <MovieCard key={key} moviedataList={item} />
               ))}

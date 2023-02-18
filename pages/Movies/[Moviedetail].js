@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useFetchMovie } from "../../components/hooks";
+import Movieinfo from "../../components/Movieinfo";
+import ProductionCompanies from "../../components/ProductionCompanies";
 
 function Moviedetail() {
   const router = useRouter();
   const movieid = router.query.Moviedetail;
   const { movieList, isError, isLoading } = useFetchMovie(movieid);
-  console.log(movieList);
+
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-[100vh]">
@@ -16,17 +18,32 @@ function Moviedetail() {
     );
   if (isError) return <h1>An error occured. Please refrech your browser</h1>;
   return (
-    <section>
-      <div>
-        <Link href="/">Go Home</Link>
-        <div className="">
-          <Image
-            className=""
-            width={500}
-            height={500}
-            src={`https://image.tmdb.org/t/p/w500${movieList.poster_path}`}
-            alt="Movie poster"
-          />
+    <section className="h-[100vh]">
+      <div className="px-5 s:px-10 py-5">
+        <Link href="/">
+          <div className="py-1 px-5 bg-[red] inline-block mb-5">Home</div>
+        </Link>
+        <div className=" s:flex justify-between">
+          <div className="w-[450px] h-[600px]">
+            <Image
+              className=""
+              width="300"
+              height={200}
+              src={`https://image.tmdb.org/t/p/original${movieList.poster_path}`}
+              alt="Movie poster"
+            />
+          </div>
+          <div>
+            <div className="mb-5">
+              <h1 className="text-2xl font-semibold text-[red] ">
+                {movieList.original_title}
+              </h1>
+            </div>
+            <div className="xxs:flex gap-5">
+              {<ProductionCompanies companyInfo={movieList} />}
+              {<Movieinfo Info={movieList} />}
+            </div>
+          </div>
         </div>
       </div>
     </section>
