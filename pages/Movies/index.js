@@ -6,7 +6,7 @@ import MovieCard from "@/component/MovieCard";
 function MoviesHomePage() {
   const [currentlyDisplayed, setCurrentlyDisplayed] = useState();
   const [currentGenre, setCurrentgenre] = useState([]);
-  const apikey = "api_key=78275e78ca363bb907ddd43cfcf1ebb3";
+  const apikey = process.env.NEXT_PUBLIC_VERCEL_ENV_NEWS_KEY;
   const discover = `movie?${apikey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=flatrate`;
   const genre = `discover/movie?${apikey}&with_genres=${currentGenre.toString()}`;
   const search = `search/movie?${apikey}&query=${currentlyDisplayed}&page=1`;
@@ -28,13 +28,7 @@ function MoviesHomePage() {
       return newState;
     });
   }
-  // console.log(movieList);
-  // if (isLoading)
-  //   return (
-  //     <div className="flex justify-center items-center h-[100vh]">
-  //       <div className="loading-spinner"></div>
-  //     </div>
-  //   );
+
   if (isError) return <h1>An error occured. Please refrech your browser</h1>;
   return (
     <section className="px-9">
