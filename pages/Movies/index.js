@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useMoviesSearch } from "../../component/hooks";
-import MovieCard from "../../component/MovieCard";
-import { moviesGenres } from "../../component/moviesData";
+import { useMoviesSearch } from "../../components/hooks";
+import MovieCard from "../../components/MovieCard";
+import { moviesGenres } from "../../components/moviesData";
 
 function MoviesHomePage() {
   MovieCard;
