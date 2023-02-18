@@ -30,7 +30,7 @@ function ProductionCompanies({ companyInfo }) {
                   </div>
                 </div>
                 <div className="text-xs">
-                  <h6 c>{item.name}</h6>
+                  <h6>{item.name}</h6>
                   <h6>{item.origin_country}</h6>
                 </div>
               </div>
@@ -45,7 +45,7 @@ function ProductionCompanies({ companyInfo }) {
       </div>
       <div className="mt-5 ">
         <h3 className="font-bold">OVERVIEW</h3>
-        <p className="text-sm xxs:w-[280px]">{companyInfo.overview}</p>
+        <p className="text-sm xs:w-[280px]">{companyInfo.overview}</p>
       </div>
     </div>
   );

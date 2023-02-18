@@ -1,6 +1,6 @@
 function Movieinfo({ Info }) {
   return (
-    <div className="xxs:w-[280px] mt-10 s:mt-[initial] flex flex-col gap-4 text-sm ">
+    <div className="xs:w-[280px] mt-10 s:mt-[initial] flex flex-col gap-4 text-sm ">
       <div className="flex gap-20">
         <h6>Rating:</h6>
         <h6 className="font-semibold ml-[auto]">{Info.vote_average}</h6>

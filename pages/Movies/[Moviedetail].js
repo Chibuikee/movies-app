@@ -23,12 +23,13 @@ function Moviedetail() {
         <Link href="/">
           <div className="py-1 px-5 bg-[red] inline-block mb-5">Home</div>
         </Link>
-        <div className=" s:flex justify-between">
-          <div className="w-[450px] h-[600px]">
+        <div className=" xs:flex gap-10 md:gap-20">
+          <div className="max-w-[450px] s:max-w-[250px] pc:max-w-[350px] ">
             <Image
               className=""
-              width="300"
-              height={200}
+              layout="responsive"
+              width="200"
+              height="100"
               src={`https://image.tmdb.org/t/p/original${movieList.poster_path}`}
               alt="Movie poster"
             />
@@ -39,7 +40,7 @@ function Moviedetail() {
                 {movieList.original_title}
               </h1>
             </div>
-            <div className="xxs:flex gap-5">
+            <div className="s:flex s:flex-col pc:flex-row gap-5">
               {<ProductionCompanies companyInfo={movieList} />}
               {<Movieinfo Info={movieList} />}
             </div>
