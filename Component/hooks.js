@@ -1,6 +1,6 @@
 import useSWR from "swr";
 const fetcher = (url) => fetch(url).then((res) => res.json());
-const apikey = process.env.NEXT_PUBLIC_VERCEL_ENV_NEWS_KEY;
+const apikey = process.env.NEXT_PUBLIC_MOVIE_DB;
 
 export const useMoviesSearch = (id) => {
   const { data, error, isLoading } = useSWR(

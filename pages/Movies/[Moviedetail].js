@@ -7,7 +7,7 @@ function Moviedetail() {
   const router = useRouter();
   const movieid = router.query.Moviedetail;
   const { movieList, isError, isLoading } = useFetchMovie(movieid);
-  // console.log(movieList);
+  console.log(movieList);
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-[100vh]">

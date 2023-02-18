@@ -6,10 +6,10 @@ import MovieCard from "@/component/MovieCard";
 function MoviesHomePage() {
   const [currentlyDisplayed, setCurrentlyDisplayed] = useState();
   const [currentGenre, setCurrentgenre] = useState([]);
-  const apikey = process.env.NEXT_PUBLIC_VERCEL_ENV_NEWS_KEY;
-  const discover = `movie?${apikey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=flatrate`;
-  const genre = `discover/movie?${apikey}&with_genres=${currentGenre.toString()}`;
-  const search = `search/movie?${apikey}&query=${currentlyDisplayed}&page=1`;
+  const apikey = process.env.NEXT_PUBLIC_MOVIE_DB;
+  const discover = `movie?api_key=${apikey}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_watch_monetization_types=flatrate`;
+  const genre = `discover/movie?api_key=${apikey}&with_genres=${currentGenre.toString()}`;
+  const search = `search/movie?api_key=${apikey}&query=${currentlyDisplayed}&page=1`;
   const { movieList, isError, isLoading } = useMoviesSearch(
     currentlyDisplayed ? search : currentGenre ? genre : discover
   );
